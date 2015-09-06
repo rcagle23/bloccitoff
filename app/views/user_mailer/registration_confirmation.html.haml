@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Welcome to Bloccitoff, #{@user.username}
+    %p
+      You have successfully signed up for Bloccitoff
+      %br
+    %p
+      To confirm your registration click the URL below.
+      %br
+      %p= confirm_email_user_url(@user.confirm_token)
+      
+    %p Thanks for joining and have a great day!
