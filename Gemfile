@@ -1,8 +1,15 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'rspec-rails', group: [:test, :development]
+gem "bcrypt", :require => "bcrypt"
+gem 'figaro', '1.0'
+
+group :test do
+  gem 'email_spec'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

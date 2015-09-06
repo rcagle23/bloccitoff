@@ -1,0 +1,22 @@
+%h1 Password Reset
+%p
+  Fill out the form below to reset your password
+
+= form_for @user, :url => password_reset_path(params[:id]) do |f|
+  - if @user.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+  .field
+    %p
+      = f.label :password
+      %br/
+      = f.password_field :password
+  .field
+    %p
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation
+  %p.button= submit_tag "Update Password"
