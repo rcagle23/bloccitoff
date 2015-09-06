@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     include EmailSpec::Matchers
   
     before(:all) do
-      @user = User.new(username: 'JojoBinks', email:'jojo@yahoo.com')
+      @user = User.new(username: 'JojoBinks', email:'jojo@yahoo.com', confirm_token: 'test-token')
       @email = UserMailer.registration_confirmation(@user)
     end
   

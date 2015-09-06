@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "application#root"
   
-  resources :users do
-    member do
-      get :confirm_email
-    end
-  end
+  get '/users/confirm_email/:confirm_token' => 'users#confirm_email', as: 'confirm'
+
+  resources :users
+
+
   resources :sessions
   resources :password_resets
 end

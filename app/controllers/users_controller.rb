@@ -18,9 +18,9 @@ class UsersController < ApplicationController
   end
   
   def confirm_email
-    user = User.find_by_confirm_token(params[:id])
+    user = User.find_by(confirm_token: params[:confirm_token])
     if user
-      user.email_activate
+      user.confirm!
       flash[:notice] = "Your email has been confirmed #{@user}! Please sign in to continue."
       redirect_to log_in_path
     else

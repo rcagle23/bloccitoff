@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
     end
   end
   
-  def email_activate
+  def confirm!
     self.email_confirmed = true
     self.confirm_token = nil
     save!(:validate => false)
