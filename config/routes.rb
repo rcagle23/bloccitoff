@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "application#root"
-  
+
   get '/users/confirm_email/:confirm_token' => 'users#confirm_email', as: 'confirm'
 
-  resources :users
-
+  resources :users, except: [:index]
 
   resources :sessions
   resources :password_resets
