@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "application#root"
   
-  resources :users do
+  resources :users, except: [:index] do
     member do
       get :confirm_email
     end
   end
+
   resources :sessions
   resources :password_resets
 end
