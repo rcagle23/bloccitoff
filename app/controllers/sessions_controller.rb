@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  skip_before_action :authenticate!, only: [:new, :create]
   
-  def index
+  def new
   end
   
   def create
@@ -18,6 +17,6 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to new_session_path, :notice => "Logged out!"
   end
 end

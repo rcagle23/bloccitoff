@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
+  before_action :authenticate!
+  
+  def authenticate!
+    redirect_to sign_up_path if current_user.nil?
+  end
   
   private
   
