@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate!, only: [:new, :create]
+
   def new
     @user = User.new
   end
   
   def show
+    @user = User.find(params[:id])
+    @items = @user.items
   end
   
   def create
@@ -19,7 +22,7 @@ class UsersController < ApplicationController
   end
   
   def confirm_email
-    user = User.find_by_confirm_token(params[:id])
+    user = 
     if user
       user.email_activate
       flash[:notice] = "Your email has been confirmed #{@user}! Please sign in to continue."

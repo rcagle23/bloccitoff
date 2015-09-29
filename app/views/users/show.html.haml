@@ -1,2 +1,12 @@
-%h1 User Profile
-%p= "#{current_user.username}'s profile"
+.container
+  .row
+    %h1 #{current_user.username}'s profile
+    %p= "Welcome to your To-Do app profile page! From here you can view and update your current to-do list items!"
+  
+  .row
+    %h3 Add To-Do Items
+    = render 'items/form', items: @items
+  
+  .row
+    %h3 Current To-Do Items
+    = render 'items/item', items: @items
