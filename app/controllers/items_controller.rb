@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def create
-    @user = User.find_by_confirm_token(params[:id])
+    @user = User.find(session[:user_id])
     @item = @user.items.build(params.require(:item).permit(:name))
 
     if @item.save
