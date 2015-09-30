@@ -6,6 +6,7 @@ gem 'pry-rails'
 gem 'rspec-rails', group: [:test, :development]
 gem "bcrypt", :require => "bcrypt"
 gem 'figaro', '1.0'
+gem 'faker'
 
 group :test do
   gem 'email_spec'
