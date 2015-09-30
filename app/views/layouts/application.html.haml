@@ -2,16 +2,14 @@
 %html
   %head
     %title Bloccitoff
-    %metae{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
      
   %body
     .container
-      %ul.nav.nav-tabs
-        %li= link_to "Home", root_path
-        
+      .row
         .pull-right.user-info
           - if current_user
             Hey there, #{current_user.username}!
@@ -22,19 +20,23 @@
             = link_to "Sign-up", sign_up_path, class: 'btn btn-primary btn-sm'
             or
             \#{link_to "Login", log_in_path, class: 'btn btn-primary btn-sm'}
-        
-      - if flash[:notice]
-        .alert.alert-success
-          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-          = flash[:notice]
-      - elsif flash[:error]
-        .alert.alert-danger
-          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-          = flash[:error]
-      - elsif flash[:alert]
-        .alert.alert-warning
-          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-          = flash[:alert]
+            
+        %ul.nav.nav-tabs
+          %li= link_to "Home", root_path
+     
+      .row     
+        - if flash[:notice]
+          .alert.alert-success
+            %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+            = flash[:notice]
+        - elsif flash[:error]
+          .alert.alert-danger
+            %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+            = flash[:error]
+        - elsif flash[:alert]
+          .alert.alert-warning
+            %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+            = flash[:alert]
       .row
         = yield
 

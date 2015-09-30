@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :items
   attr_accessor :password
   before_save :encrypt_password
   before_create :confirmation_token
