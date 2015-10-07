@@ -1,3 +1,5 @@
-<% @items.each do |item| %>
-  <p><%= item.name %></p>
-<% end %>
+<%= content_tag :p, id: "item-#{item.id}" do %>
+  <%= link_to "", [@user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %> 
+  <%= item.name %>
+ <% end %>
+

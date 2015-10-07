@@ -5,8 +5,8 @@
   
   .row
     %h3 Add To-Do Items
-    = render 'items/form', items: @items
+    = render 'items/form'
   
   .row
     %h3 Current To-Do Items
-    = render 'items/item', items: @items
+    = render partial: 'items/item', collection: @items

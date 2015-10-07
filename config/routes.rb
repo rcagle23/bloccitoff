@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/users/confirm_email/:confirm_token' => 'users#confirm_email', as: 'confirm'
 
   resources :users, except: [:index] do
-    resources :items, only: [:create]
+    resources :items, except: [:index]
   end
 
   resources :sessions
